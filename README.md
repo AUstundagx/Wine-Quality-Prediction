@@ -31,6 +31,7 @@ git push -u origin main = pushin main branch to origin and set for future change
 git remote add origin GİTHUB_REPO_URL = connecting your local repo to remote GitHub repo\
 git config --global user.name "GitHub_Nickname" = entering your Nickname\
 git config --global user.email "GitHub_Email_Adress" = entering your Email\
+git restore notebooks/hello.ipynb =  discard changes in working directory\
 
 when eveything set these 3 comments is enough for project :\
 git add . -> git commit -m "comment" -> git push
