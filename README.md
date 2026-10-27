@@ -21,6 +21,7 @@ python -m pip install -r requirements.txt = installing python library in require
 pd.read_csv("../dataset/raw/Kaggle/winemag-data.csv") = ".." means going back from your current location\
 common = df.columns.intersection(df2.columns) == give you common columns between df and df2 
 df = pd.concat([df1[common],df2[commmon],ignore_index=True) == merge common columns between df1 and df2 to df
+df = df.drop(columns["column1","column2"]) == deleting columns from dataframe 
 ### Git/Github
 git init = initiliaze a new Git repository on current directory \
 git add . = adding git to changed files \
