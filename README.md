@@ -10,51 +10,36 @@ I will document everything from A to Z, so this project is also training for me.
  
 ---
 ## 3 - Project Overview
+ The project uses **two real (not AI-generated) wine datasets** and, for each one, repeats the same workflow:
+dataset analysis → visualization → preprocessing → literature review → method selection → experiments.
  
-**Goal:** predict wine quality (`points`) and related attributes (`country`, `variety`, `price`) from expert wine reviews.
- 
-| Item | Description |
-|---|---|
-| Data type | Text (`description`) + tabular (categorical and numeric) |
-| Task types | Regression (`points`), multi-class classification (`points_class`, `country`, `variety`, `price_class`) |
-| Labeled? | Yes, supervised learning |
-| Dataset 1 | [Wine Reviews, Kaggle](https://www.kaggle.com/datasets/zynicide/wine-reviews) (`winemag-data-130k-v2.csv`, real Wine Enthusiast reviews, not AI-generated) |
-| Dataset 2 | *(to be added)* |
- 
-### Base papers
-1. Kim, B. (2022). *Predictions of wine ratings using natural language processing.* Issues in Information Systems, 23(3), 64-68. https://doi.org/10.48009/3_iis_2022_107
-2. Robson, F., & Amdahl-Culleton, L. (2018). *Classy classification: Classifying and generating expert wine review.* Stanford CS224N report. https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1184/reports/6909240.pdf
----
+| | Dataset 1: Wine Reviews | Dataset 2: UCI Wine |
+|---|---|---|
+| Link | [Kaggle](https://www.kaggle.com/datasets/zynicide/wine-reviews) | [UCI ML Repository (ID 109)](https://archive.ics.uci.edu/dataset/109/wine) |
+| File | `winemag-data-130k-v2.csv` | `dataset/raw/UCI/wine.data`|
+| Data type | Text (`description`) + tabular | Tabular, 13 numeric chemical features |
+| Size | 129,971 reviews, 14 columns | 178 samples, 13 features + 1 label |
+| Labels | `points`, `price`, `country`, `province`, `variety` | `class` (3 grape cultivars) |
+| Task | Regression and multi-class classification | Multi-class classification (3 classes) |
+| Missing data | Yes (`region_2`, `taster_*`, `price`, ...) | **None** |
+| Notebook | `notebooks/data_kaggle.ipynb` | `notebooks/data_ucı.ipynb` |
 
 ## 4 - Project Structure
  
+
 ```
 wine-quality-prediction/
 ├── dataset/
-│   └── raw/Kaggle/            # original CSV files (never edited by hand)
-├── data_processed/            # train / dev / test CSVs created by the notebook
+│   └── raw/                   # original files (never edited by hand)
+├── data_processed/            # train / dev / test CSVs created by the Dataset 1 notebook
 ├── notebooks/
-│   └── wine_reviews_analysis.ipynb
+│   ├── data_kaggle.ipynb   # Dataset 1
+│   └── data_uci.ipynb       # Dataset 2
 ├── requirements.txt
 └── README.md
 ```
----
-## 4 - Project Structure
- 
-```
-wine-quality-prediction/
-├── dataset/
-│   └── raw/Kaggle/            # original CSV files (never edited by hand)
-├── data_processed/            # train / dev / test CSVs created by the notebook
-├── notebooks/
-│   └── wine_reviews_analysis.ipynb
-├── requirements.txt
-└── README.md
-```
- 
-> Adjust this tree to match your real folders.
- 
----
+
+
  
 ## 5 - Pipeline (what the notebook does)
  
